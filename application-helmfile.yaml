@@ -1,0 +1,14 @@
+apiVersion: argoproj.io/v1alpha1
+kind: Application
+metadata:
+  name: helmfile
+  namespace: argocd
+spec:
+  project: default
+  source:
+    path: ./
+    plugin: {}
+    repoURL: https://github.com/xuantu55/helmfile-example.git
+  destination:
+    server: https://kubernetes.default.svc
+    namespace: guestbook
